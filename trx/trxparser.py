@@ -133,8 +133,20 @@ def main(input_file,trx_offset=0):
     print("Partition 2 offset:              %d" % trx_header.p2_off)
     print("Partition 3 offset:              %d" % trx_header.p3_off)
     
+
+def usage(status):
+    print("Usage:   trxparser.py <firmware_image> [optional offset of TRX header]")
+    print("Examples:")
+    print("         trxparser.py firmware.bin")
+    print("         trxparser.py firmware.bin 128")
+    print("         trxparser.py firmware.bin 0x80")
+    exit(status)
+
 if __name__ == "__main__":
-    if(len(sys.argv) == 3):
+    if len(sys.argv) == 3:
         main(sys.argv[1],int(sys.argv[2],0))
-    else:
+    elif len(sys.argv) == 2:
         main(sys.argv[1])
+    else:
+        usage(1)
+    
