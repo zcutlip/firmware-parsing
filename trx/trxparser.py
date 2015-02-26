@@ -3,7 +3,7 @@ import sys
 import struct
 
 class TRXHeaderException(Exception):
-    def __init__(sefl,msg):
+    def __init__(self,msg):
         super(self.__class__,self).__init__(msg)
 
 class TRXHeader(object):
